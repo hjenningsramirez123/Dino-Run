@@ -1,4 +1,9 @@
-﻿using System.Collections;
+/*
+ * PlayerMove.cs
+ * Marvin Chan
+ * 31 Jan. 2020
+ * This controls the player movement
+ */using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
