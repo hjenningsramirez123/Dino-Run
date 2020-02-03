@@ -37,7 +37,7 @@ public class PlayerMove : MonoBehaviour
         {
             transform.position = transform.position + new Vector3(Speed * Time.deltaTime, 0);
         }
-        if(Input.GetKey("up") || Input.GetKey(Jump))
+        if((Input.GetKey("up") || Input.GetKey(Jump)) && !Input.GetKey("down"))
         {
             if(transform.position.y < yValue + 0.0001f)
             {
@@ -48,7 +48,10 @@ public class PlayerMove : MonoBehaviour
                 momentum += FloatPower;
             }
         }
-        print(momentum);
+        else if(Input.GetKey("down"))
+        {
+            momentum = -15f;
+        }
         transform.position = transform.position + new Vector3(0, momentum * Time.deltaTime);
         if(transform.position.y > yValue + 0.0001f)
         {
