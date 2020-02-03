@@ -10,6 +10,7 @@ using UnityEngine;
 public class SideScroll : MonoBehaviour
 {
     public static float speed = 3f;
+    bool moving = false;
     Rigidbody2D myRB;
 
     // Start is called before the first frame update
@@ -21,12 +22,23 @@ public class SideScroll : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-        if(transform.position.x < -16)
+        if (moving)
         {
-            transform.position = new Vector2(26, transform.position.y);
-        }
-        transform.position = transform.position + new Vector3(-speed * Time.deltaTime, 0);
-        
+            if (transform.position.x < -16)
+            {
+                transform.position = new Vector2(26, transform.position.y);
+            }
+            transform.position = transform.position + new Vector3(-speed * Time.deltaTime, 0);
+        }        
+    }
+
+    public void Pause()
+    {
+        moving = false;
+    }
+
+    public void Resume()
+    {
+        moving = true;
     }
 }
