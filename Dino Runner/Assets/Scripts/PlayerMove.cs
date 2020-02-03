@@ -1,9 +1,10 @@
 /*
  * PlayerMove.cs
- * Marvin Chan
+ * Harry Jennings-Ramirez & Marvin Chan
  * 31 Jan. 2020
  * This controls the player movement
- */using System.Collections;
+ */
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
