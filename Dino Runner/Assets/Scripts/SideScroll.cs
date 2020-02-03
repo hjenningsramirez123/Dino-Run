@@ -10,7 +10,7 @@ using UnityEngine;
 public class SideScroll : MonoBehaviour
 {
     public static float speed = 3f;
-    bool moving = false;
+    bool moving = true;
     Rigidbody2D myRB;
 
     // Start is called before the first frame update

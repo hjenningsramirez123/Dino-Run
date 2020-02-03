@@ -37,7 +37,7 @@ public class PlayerMove : MonoBehaviour
         {
             transform.position = transform.position + new Vector3(Speed * Time.deltaTime, 0);
         }
-        if(Input.GetKey(Jump))
+        if(Input.GetKey("up") || Input.GetKey(Jump))
         {
             if(transform.position.y < yValue + 0.0001f)
             {
