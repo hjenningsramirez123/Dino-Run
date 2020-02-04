@@ -9,7 +9,7 @@ using UnityEngine;
 
 public class SideScroll : MonoBehaviour
 {
-    public static float speed = 10f;
+    public List<Sprite> sprites;
     bool moving = true;
     Rigidbody2D myRB;
 
@@ -26,10 +26,16 @@ public class SideScroll : MonoBehaviour
         {
             if (transform.position.x < -16)
             {
-                transform.position = new Vector2(26, transform.position.y);
+                Teleport();
             }
-            transform.position = transform.position + new Vector3(-speed * Time.deltaTime, 0);
-        }        
+            transform.position = transform.position + new Vector3(-GameManager.ScrollSpeed * Time.deltaTime, 0);
+        }
+    }
+
+    private void Teleport()
+    {
+        GetComponent<SpriteRenderer>().sprite = sprites[(int)(Random.value * sprites.Count)];
+        transform.position = new Vector2(GameManager.TeleportDistance, transform.position.y);
     }
 
     public void Pause()

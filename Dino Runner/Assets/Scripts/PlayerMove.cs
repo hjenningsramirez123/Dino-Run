@@ -28,7 +28,6 @@ public class PlayerMove : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        print((Input.GetKeyDown(Jump[0]) || Input.GetKeyDown(Jump[1])));
         if ((Input.GetKey(Jump[0]) || Input.GetKey(Jump[1])) && !Input.GetKey("down") && canJump)
         {
             if(transform.position.y < yValue + 0.0001f)
