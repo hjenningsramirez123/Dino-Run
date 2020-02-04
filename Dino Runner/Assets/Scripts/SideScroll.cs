@@ -9,7 +9,7 @@ using UnityEngine;
 
 public class SideScroll : MonoBehaviour
 {
-    public static float speed = 6f;
+    public static float speed = 10f;
     bool moving = true;
     Rigidbody2D myRB;
 

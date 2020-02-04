@@ -12,9 +12,9 @@ public class PlayerMove : MonoBehaviour
 {
     public static string[] Jump = new string[2]{ "space", "up" };
     public float Speed = 5;
-    public float JumpPower = 15;
-    public float FloatPower = 0.9f;
-    public float Gravity = 0.6f;
+    public float JumpPower = 16;
+    public float FloatPower = 1.5f;
+    public float Gravity = 1.5f;
     public float yValue = -2;
     private float momentum = 0;
     private bool releasedSpace = false;
@@ -28,7 +28,8 @@ public class PlayerMove : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if((Input.GetKey(Jump[0]) || Input.GetKey(Jump[1])) && !Input.GetKey("down") && canJump)
+        print((Input.GetKeyDown(Jump[0]) || Input.GetKeyDown(Jump[1])));
+        if ((Input.GetKey(Jump[0]) || Input.GetKey(Jump[1])) && !Input.GetKey("down") && canJump)
         {
             if(transform.position.y < yValue + 0.0001f)
             {
@@ -46,13 +47,13 @@ public class PlayerMove : MonoBehaviour
         {
             momentum = -15f;
         }
-        if ((Input.GetKeyDown(Jump[0]) || Input.GetKeyDown(Jump[1])) && transform.position.y > 0.0001f)
+        if (Input.GetKey("down") && transform.position.y > 0.0001f)
         {
             canJump = false;
         }
         else
         {
-            if(Input.GetKeyUp(Jump[0]) || Input.GetKeyUp(Jump[1]))
+            if(!Input.GetKey(Jump[0]) && !Input.GetKey(Jump[1]))
             {
                 canJump = true;
             }
