@@ -1,6 +1,6 @@
 /*
  * PlayerMove.cs
- * Harry Jennings-Ramirez & Marvin Chan
+ * Marvin Chan
  * 31 Jan. 2020
  * This controls the player movement
  */
@@ -10,15 +10,15 @@ using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
 {
-    public string Left = "a";
-    public string Right = "d";
-    public string Jump = "space";
+    public static string[] Jump = new string[2]{ "space", "up" };
     public float Speed = 5;
-    public float JumpPower = 10;
-    public float FloatPower = 0.3f;
+    public float JumpPower = 15;
+    public float FloatPower = 0.9f;
     public float Gravity = 0.6f;
     public float yValue = -2;
     private float momentum = 0;
+    private bool releasedSpace = false;
+    private bool canJump = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,16 +28,7 @@ public class PlayerMove : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if(Input.GetKey(Left))
-        {
-            transform.position = transform.position + new Vector3(-Speed * Time.deltaTime, 0);
-        }
-
-        if(Input.GetKey(Right))
-        {
-            transform.position = transform.position + new Vector3(Speed * Time.deltaTime, 0);
-        }
-        if((Input.GetKey("up") || Input.GetKey(Jump)) && !Input.GetKey("down"))
+        if((Input.GetKey(Jump[0]) || Input.GetKey(Jump[1])) && !Input.GetKey("down") && canJump)
         {
             if(transform.position.y < yValue + 0.0001f)
             {
@@ -45,20 +36,39 @@ public class PlayerMove : MonoBehaviour
             }
             else
             {
-                momentum += FloatPower;
+                if (!releasedSpace && transform.position.y < yValue + 2)
+                {
+                    momentum += FloatPower;
+                }
             }
         }
         else if(Input.GetKey("down"))
         {
             momentum = -15f;
         }
+        if ((Input.GetKeyDown(Jump[0]) || Input.GetKeyDown(Jump[1])) && transform.position.y > 0.0001f)
+        {
+            canJump = false;
+        }
+        else
+        {
+            if(Input.GetKeyUp(Jump[0]) || Input.GetKeyUp(Jump[1]))
+            {
+                canJump = true;
+            }
+        }
         transform.position = transform.position + new Vector3(0, momentum * Time.deltaTime);
         if(transform.position.y > yValue + 0.0001f)
         {
+            if(!(Input.GetKey(Jump[0]) || Input.GetKey(Jump[1])))
+            {
+                releasedSpace = true;
+            }
             momentum -= Gravity;
         }
         else
         {
+            releasedSpace = false;
             momentum = 0;
             transform.position = new Vector3(transform.position.x, yValue);
         }
