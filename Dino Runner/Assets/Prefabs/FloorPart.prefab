@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 2368661721894225236}
   - component: {fileID: 7431707316858120839}
-  - component: {fileID: 6778825998729555047}
+  - component: {fileID: 894893102769372780}
   - component: {fileID: 8283817141822906566}
   - component: {fileID: 5594379332771127707}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FloorPart
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28,8 +28,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1235982770307760620}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -3, z: -23.808657}
-  m_LocalScale: {x: 14, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: -3, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 5ed5e0b478f69cb4894efe2b856141f3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 52d6b677c1225b4438dda6de8210ecd1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -84,7 +84,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &6778825998729555047
+--- !u!61 &894893102769372780
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -101,14 +101,14 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 9.25, y: 0.5}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 9.25, y: 0.5}
   m_EdgeRadius: 0
 --- !u!50 &8283817141822906566
 Rigidbody2D:
@@ -144,5 +144,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprites:
-  - {fileID: 21300000, guid: 283c41c0129e34044b20c9d511f777cc, type: 3}
-  - {fileID: 21300000, guid: 5ed5e0b478f69cb4894efe2b856141f3, type: 3}
+  - {fileID: 21300000, guid: 52d6b677c1225b4438dda6de8210ecd1, type: 3}
+  - {fileID: 21300000, guid: cf593c79f1c635545bead71d93f92e42, type: 3}
+  - {fileID: 21300000, guid: 98eb3c8c169354b418c092add895eb8a, type: 3}
+  - {fileID: 21300000, guid: 229f2a936b7948b43a41c91122fe0503, type: 3}
+  - {fileID: 21300000, guid: f0b343d96b4eab04b89e508d67c68d54, type: 3}
+  type: 0
