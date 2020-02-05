@@ -1,4 +1,9 @@
-﻿using System.Collections;
+﻿/* GameManager.cs
+ * Marvin & Harry
+ * 4 February 2020
+ * Manages game stuff like score and scroll speed
+ */ 
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -8,13 +13,14 @@ public class GameManager : MonoBehaviour
     private List<GameObject> terrainObjects;
     public static float ScrollSpeed = 10f;
     public static float TeleportDistance = 26f;
-    public Text Score;
+    public GameObject Score;
     public PlayerMove Player;
     public float CurrentScore;
 
     // Start is called before the first frame update
     void Start()
     {
+        
         Player = GetComponent<PlayerMove>();
         CurrentScore = 0;
     }
@@ -22,11 +28,13 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey("down"))
+        CurrentScore += ScrollSpeed / 250f;
+        string scoreString = "";
+        for (int i = 1; i <= 5 - ((int)CurrentScore).ToString().Length; i++)
         {
-            CurrentScore += ScrollSpeed;
+            scoreString += '0';
         }
-
-        Score.text = "00000" +  (int)CurrentScore;
+        scoreString += ((int)CurrentScore).ToString();
+        Score.GetComponent<Text>().text = scoreString;
     }
 }
