@@ -10,25 +10,34 @@ using UnityEngine;
 public class SideScroll : MonoBehaviour
 {
     public List<Sprite> sprites;
-    bool moving = true;
-    Rigidbody2D myRB;
+    private bool moving = true;
+    public enum Type { Floor, Cactus, Pterodactyl }
+    public Type type;
 
     // Start is called before the first frame update
     void Start()
     {
-        myRB = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (moving)
+        // move left by amount depending on scrollspeed
+        transform.position = transform.position + new Vector3(-GameManager.ScrollSpeed * Time.deltaTime, 0);
+        // when it gets off screen teleport forward or create new one
+        if (transform.position.x < -16)
         {
-            if (transform.position.x < -16)
+            switch (type)
             {
-                Teleport();
+                case Type.Floor:
+                    Teleport();
+                    
+                    break;
+                default:
+
+                    break;
+
             }
-            transform.position = transform.position + new Vector3(-GameManager.ScrollSpeed * Time.deltaTime, 0);
         }
     }
 
