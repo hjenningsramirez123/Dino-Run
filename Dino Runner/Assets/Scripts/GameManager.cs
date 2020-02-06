@@ -29,14 +29,17 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        CurrentScore += ScrollSpeed / 250f;
-        string scoreString = "";
-        for (int i = 1; i <= 5 - ((int)CurrentScore).ToString().Length; i++)
+        if(playing)
         {
-            scoreString += '0';
+            CurrentScore += ScrollSpeed / 250f;
+            string scoreString = "";
+            for (int i = 1; i <= 5 - ((int)CurrentScore).ToString().Length; i++)
+            {
+                scoreString += '0';
+            }
+            scoreString += ((int)CurrentScore).ToString();
+            Score.GetComponent<Text>().text = scoreString;
         }
-        scoreString += ((int)CurrentScore).ToString();
-        Score.GetComponent<Text>().text = scoreString;
     }
 
     public static void Pause()
