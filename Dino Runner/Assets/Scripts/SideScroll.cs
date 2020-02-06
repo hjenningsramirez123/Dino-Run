@@ -12,11 +12,14 @@ public class SideScroll : MonoBehaviour
     public List<Sprite> sprites;
     private bool moving = true;
     public enum Type { Floor, Cactus, Pterodactyl }
+    public Obstacles Obstacles;
+    public float TeleLocation = 24f;
     public Type type;
 
     // Start is called before the first frame update
     void Start()
     {
+        transform.position.Set(transform.position.x, -2, 0);
     }
 
     // Update is called once per frame
@@ -25,26 +28,28 @@ public class SideScroll : MonoBehaviour
         // move left by amount depending on scrollspeed
         transform.position = transform.position + new Vector3(-GameManager.ScrollSpeed * Time.deltaTime, 0);
         // when it gets off screen teleport forward or create new one
-        if (transform.position.x < -16)
+
+        switch (type)
         {
-            switch (type)
-            {
-                case Type.Floor:
+            case Type.Floor:
+                if (transform.position.x < -16)
+                {
                     Teleport();
-                    
-                    break;
-                default:
-
-                    break;
-
-            }
+                }
+                break;
+            default:
+                if (transform.position.x < -10)
+                {
+                    Destroy(gameObject);
+                }
+                break;
         }
     }
 
     private void Teleport()
     {
         GetComponent<SpriteRenderer>().sprite = sprites[(int)(Random.value * sprites.Count)];
-        transform.position = new Vector2(GameManager.TeleportDistance, transform.position.y);
+        transform.position = new Vector2(TeleLocation, transform.position.y);
     }
 
     public void Pause()
