@@ -1,7 +1,7 @@
 /*
  * PlayerMove.cs
  * Marvin Chan & Harry Jennings-Ramirez
- * 2 Feb. 2020
+ * 6 Feb. 2020
  * This controls the player movement
  */
 using System.Collections;
@@ -22,12 +22,14 @@ public class PlayerMove : MonoBehaviour
     private AudioSource JumpAudio;
     private SpriteRenderer SpriteRen;
     public Sprite DinosaurDead;
+    public Animation DinoDuck;
     private Animator Anim;
     // Start is called before the first frame update
     void Start()
     {
         JumpAudio = GetComponent<AudioSource>();
         SpriteRen = GetComponent<SpriteRenderer>();
+        DinoDuck = GetComponent<Animation>();
         Anim = GetComponent<Animator>();
     }
 
@@ -58,6 +60,7 @@ public class PlayerMove : MonoBehaviour
             if (Input.GetKey("down") && transform.position.y > 0.0001f)
             {
                 canJump = false;
+                Anim.SetTrigger("Dino Duck");
             }
             else
             {

@@ -46,7 +46,6 @@ public class GameManager : MonoBehaviour
     public static void Pause()
     {
         playing = false;
-
     }
 
     public static void Resume()

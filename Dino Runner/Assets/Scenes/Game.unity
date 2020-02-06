@@ -788,6 +788,7 @@ MonoBehaviour:
   Gravity: 1.5
   yValue: -2
   DinosaurDead: {fileID: 21300000, guid: d7ab572f3f9754c44a81b71dcca1b82d, type: 3}
+  DinoDuck: {fileID: 0}
 --- !u!61 &545266330
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1396,8 +1397,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Score: {fileID: 1372725970}
   Player: {fileID: 545266329}
-  Canvas: {fileID: 0}
-  Button: {fileID: 0}
 --- !u!4 &1700031259
 Transform:
   m_ObjectHideFlags: 0
