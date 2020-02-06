@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     public GameObject Score;
     public PlayerMove Player;
     public float CurrentScore;
+    private static bool playing = true;
 
     // Start is called before the first frame update
     void Start()
@@ -36,5 +37,20 @@ public class GameManager : MonoBehaviour
         }
         scoreString += ((int)CurrentScore).ToString();
         Score.GetComponent<Text>().text = scoreString;
+    }
+
+    public static void Pause()
+    {
+        playing = false;
+    }
+
+    public static void Resume()
+    {
+        playing = true;
+    }
+
+    public static bool GetPlaying()
+    {
+        return playing;
     }
 }

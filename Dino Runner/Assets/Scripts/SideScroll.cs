@@ -10,7 +10,6 @@ using UnityEngine;
 public class SideScroll : MonoBehaviour
 {
     public List<Sprite> sprites;
-    private bool moving = true;
     public enum Type { Floor, Cactus, Pterodactyl }
     public Obstacles Obstacles;
     public float TeleLocation = 24f;
@@ -26,7 +25,10 @@ public class SideScroll : MonoBehaviour
     void Update()
     {
         // move left by amount depending on scrollspeed
-        transform.position = transform.position + new Vector3(-GameManager.ScrollSpeed * Time.deltaTime, 0);
+        if (GameManager.GetPlaying())
+        {
+            transform.position = transform.position + new Vector3(-GameManager.ScrollSpeed * Time.deltaTime, 0);
+        }
         // when it gets off screen teleport forward or create new one
 
         switch (type)
@@ -50,15 +52,5 @@ public class SideScroll : MonoBehaviour
     {
         GetComponent<SpriteRenderer>().sprite = sprites[(int)(Random.value * sprites.Count)];
         transform.position = new Vector2(TeleLocation, transform.position.y);
-    }
-
-    public void Pause()
-    {
-        moving = false;
-    }
-
-    public void Resume()
-    {
-        moving = true;
     }
 }
