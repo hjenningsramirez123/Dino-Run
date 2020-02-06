@@ -7,6 +7,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerMove : MonoBehaviour
 {
@@ -19,10 +20,16 @@ public class PlayerMove : MonoBehaviour
     private float momentum = 0;
     private bool releasedSpace = false;
     private bool canJump = true;
+    private AudioSource JumpAudio;
+    private SpriteRenderer SpriteRen;
+    public Sprite DinosuarDead;
+    private Animator Anim;
     // Start is called before the first frame update
     void Start()
     {
-        
+        JumpAudio = GetComponent<AudioSource>();
+        SpriteRen = GetComponent<SpriteRenderer>();
+        Anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -33,6 +40,7 @@ public class PlayerMove : MonoBehaviour
             if(transform.position.y < yValue + 0.0001f)
             {
                 momentum = JumpPower;
+                JumpAudio.Play();
             }
             else
             {
@@ -74,4 +82,17 @@ public class PlayerMove : MonoBehaviour
         }
         
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Obstacle")
+        {
+            Speed = 0;
+            JumpPower = 0;
+            momentum = 0;
+            Anim.gameObject.GetComponent<Animator>().enabled = false;
+            SpriteRen.sprite = DinosuarDead;
+        }
+    }
+
 }
