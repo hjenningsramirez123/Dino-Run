@@ -1,7 +1,7 @@
 /*
  * PlayerMove.cs
- * Marvin Chan
- * 31 Jan. 2020
+ * Marvin Chan & Harry Jennings-Ramirez
+ * 2 Feb. 2020
  * This controls the player movement
  */
 using System.Collections;
@@ -12,7 +12,6 @@ using UnityEngine.UI;
 public class PlayerMove : MonoBehaviour
 {
     public static string[] Jump = new string[2]{ "space", "up" };
-    public float Speed = 5;
     public float JumpPower = 16;
     public float FloatPower = 1.5f;
     public float Gravity = 1.5f;
@@ -22,7 +21,7 @@ public class PlayerMove : MonoBehaviour
     private bool canJump = true;
     private AudioSource JumpAudio;
     private SpriteRenderer SpriteRen;
-    public Sprite DinosuarDead;
+    public Sprite DinosaurDead;
     private Animator Anim;
     // Start is called before the first frame update
     void Start()
@@ -85,13 +84,14 @@ public class PlayerMove : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        // If Dinosaur collides with a cactus or bird the game stops
         if (collision.gameObject.tag == "Obstacle")
         {
-            Speed = 0;
-            JumpPower = 0;
-            momentum = 0;
+            GameManager.Pause();
+            // Changes the dinosaur sprite to his dead sprite
             Anim.gameObject.GetComponent<Animator>().enabled = false;
-            SpriteRen.sprite = DinosuarDead;
+            SpriteRen.sprite = DinosaurDead;
+            momentum = 0;
         }
     }
 
