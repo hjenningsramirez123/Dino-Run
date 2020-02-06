@@ -20,6 +20,7 @@ public class ChangeScene : MonoBehaviour
 
     public void OpenGame()
     {
+        GameManager.Resume();
         SceneManager.LoadScene("Game");
     }
 

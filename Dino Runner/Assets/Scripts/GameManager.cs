@@ -17,7 +17,6 @@ public class GameManager : MonoBehaviour
     public PlayerMove Player;
     private static float CurrentScore;
     private static bool playing = true;
-
     public static float cactusRate = 1.0f;
 
     // Start is called before the first frame update
@@ -47,6 +46,7 @@ public class GameManager : MonoBehaviour
     public static void Pause()
     {
         playing = false;
+
     }
 
     public static void Resume()

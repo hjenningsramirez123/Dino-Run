@@ -94,6 +94,7 @@ public class PlayerMove : MonoBehaviour
             Anim.gameObject.GetComponent<Animator>().enabled = false;
             SpriteRen.sprite = DinosaurDead;
             momentum = 0;
+
         }
     }
 
