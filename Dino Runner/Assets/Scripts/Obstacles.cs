@@ -6,22 +6,38 @@ public class Obstacles : MonoBehaviour
 {
     public GameObject cactus;
     public GameObject pterodactyl;
+    private static float nextSpawn = 35;
+    public static float lowerSpawn = 10;
+    public static float higherSpawn = 25;
 
     // Start is called before the first frame update
     void Start()
     {
-        Spawn();
+        
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(GameManager.getScore() > nextSpawn)
+        {
+            Spawn();
+            nextSpawn += Random.Range(lowerSpawn, higherSpawn);
+        }
     }
 
     public void Spawn()
     {
-        Instantiate(cactus);
-        first.GetComponent<SideScroll>().type = SideScroll.Type.Cactus;
-        first.transform.position = new Vector3(50, -2, 0);
+        GameObject obstacle;
+        if(Random.value < GameManager.getCactusRate())
+        {
+            obstacle = Instantiate(cactus);
+        }
+        else
+        {
+            obstacle = Instantiate(pterodactyl);
+        }
+        obstacle.GetComponent<SideScroll>().type = SideScroll.Type.Cactus;
+        obstacle.transform.position = new Vector3(10, -2, 0);
     }
 }

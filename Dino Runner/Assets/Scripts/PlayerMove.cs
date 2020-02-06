@@ -34,52 +34,54 @@ public class PlayerMove : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if ((Input.GetKey(Jump[0]) || Input.GetKey(Jump[1])) && !Input.GetKey("down") && canJump)
+        if (GameManager.GetPlaying())
         {
-            if(transform.position.y < yValue + 0.0001f)
+            if ((Input.GetKey(Jump[0]) || Input.GetKey(Jump[1])) && !Input.GetKey("down") && canJump)
             {
-                momentum = JumpPower;
-                JumpAudio.Play();
+                if (transform.position.y < yValue + 0.0001f)
+                {
+                    momentum = JumpPower;
+                    JumpAudio.Play();
+                }
+                else
+                {
+                    if (!releasedSpace && transform.position.y < yValue + 2)
+                    {
+                        momentum += FloatPower;
+                    }
+                }
+            }
+            else if (Input.GetKey("down"))
+            {
+                momentum = -15f;
+            }
+            if (Input.GetKey("down") && transform.position.y > 0.0001f)
+            {
+                canJump = false;
             }
             else
             {
-                if (!releasedSpace && transform.position.y < yValue + 2)
+                if (!Input.GetKey(Jump[0]) && !Input.GetKey(Jump[1]))
                 {
-                    momentum += FloatPower;
+                    canJump = true;
                 }
             }
-        }
-        else if(Input.GetKey("down"))
-        {
-            momentum = -15f;
-        }
-        if (Input.GetKey("down") && transform.position.y > 0.0001f)
-        {
-            canJump = false;
-        }
-        else
-        {
-            if(!Input.GetKey(Jump[0]) && !Input.GetKey(Jump[1]))
+            transform.position = transform.position + new Vector3(0, momentum * Time.deltaTime);
+            if (transform.position.y > yValue + 0.0001f)
             {
-                canJump = true;
+                if (!(Input.GetKey(Jump[0]) || Input.GetKey(Jump[1])))
+                {
+                    releasedSpace = true;
+                }
+                momentum -= Gravity;
+            }
+            else
+            {
+                releasedSpace = false;
+                momentum = 0;
+                transform.position = new Vector3(transform.position.x, yValue);
             }
         }
-        transform.position = transform.position + new Vector3(0, momentum * Time.deltaTime);
-        if(transform.position.y > yValue + 0.0001f)
-        {
-            if(!(Input.GetKey(Jump[0]) || Input.GetKey(Jump[1])))
-            {
-                releasedSpace = true;
-            }
-            momentum -= Gravity;
-        }
-        else
-        {
-            releasedSpace = false;
-            momentum = 0;
-            transform.position = new Vector3(transform.position.x, yValue);
-        }
-        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

@@ -15,8 +15,10 @@ public class GameManager : MonoBehaviour
     public static float TeleportDistance = 26f;
     public GameObject Score;
     public PlayerMove Player;
-    public float CurrentScore;
+    private static float CurrentScore;
     private static bool playing = true;
+
+    public static float cactusRate = 1.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -55,5 +57,15 @@ public class GameManager : MonoBehaviour
     public static bool GetPlaying()
     {
         return playing;
+    }
+
+    public static float getCactusRate()
+    {
+        return cactusRate;
+    }
+
+    public static float getScore()
+    {
+        return CurrentScore;
     }
 }

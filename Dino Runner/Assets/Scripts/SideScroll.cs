@@ -11,7 +11,6 @@ public class SideScroll : MonoBehaviour
 {
     public List<Sprite> sprites;
     public enum Type { Floor, Cactus, Pterodactyl }
-    public Obstacles Obstacles;
     public float TeleLocation = 24f;
     public Type type;
 
@@ -19,6 +18,7 @@ public class SideScroll : MonoBehaviour
     void Start()
     {
         transform.position.Set(transform.position.x, -2, 0);
+        GetComponent<SpriteRenderer>().sprite = sprites[(int)(Random.value * sprites.Count)];
     }
 
     // Update is called once per frame

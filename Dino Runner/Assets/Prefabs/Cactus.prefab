@@ -107,7 +107,8 @@ MonoBehaviour:
   - {fileID: 1742208062423336634, guid: 819fed02f39ecf04dac667674e271d6d, type: 3}
   - {fileID: -4182094963593053772, guid: 819fed02f39ecf04dac667674e271d6d, type: 3}
   - {fileID: -4738246450746947362, guid: 819fed02f39ecf04dac667674e271d6d, type: 3}
-  type: 0
+  TeleLocation: 24
+  type: 1
 --- !u!61 &4561041394445694996
 BoxCollider2D:
   m_ObjectHideFlags: 0
