@@ -32,7 +32,7 @@ public class RandomContainer : MonoBehaviour
         AudioSource source = gameObject.AddComponent<AudioSource>();
 
         //load clip into audiosource
-        source.outputAudioMixerGroup = output;
+        source.clip = clips[randomClip];
 
         //set output for audiosource
         source.outputAudioMixerGroup = output;

@@ -1,7 +1,7 @@
 /*
  * PlayerMove.cs
  * Marvin Chan & Harry Jennings-Ramirez
- * 6 Feb. 2020
+ * 7 Feb. 2020
  * This controls the player movement
  */
 using System.Collections;
@@ -20,8 +20,8 @@ public class PlayerMove : MonoBehaviour
     private bool releasedSpace = false;
     private bool canJump = true;
     public AudioClip[] jumpClips;
+    public AudioClip[] deadClips;
     private RandomContainer randomCon;
-    private AudioSource GameOverAudio;
     private SpriteRenderer SpriteRen;
     public Sprite DinosaurDead;
     public Sprite DinoStill;
@@ -31,12 +31,9 @@ public class PlayerMove : MonoBehaviour
     void Start()
     {
         randomCon = GetComponent<RandomContainer>();
-        //JumpClips = GetComponent<AudioClip>();
-        GameOverAudio = GetComponent<AudioSource>();
         SpriteRen = GetComponent<SpriteRenderer>();
         DinoDuck = GetComponent<Animation>();
         Anim = GetComponent<Animator>();
-        
     }
 
     // Update is called once per frame
@@ -69,7 +66,7 @@ public class PlayerMove : MonoBehaviour
             if (Input.GetKey("down") && transform.position.y > 0.0001f)
             {
                 canJump = false;
-                Anim.SetTrigger("Dino Duck");
+                // Anim.SetTrigger("Dino Duck");
             }
             else
             {
@@ -89,6 +86,7 @@ public class PlayerMove : MonoBehaviour
             }
             else
             {
+                Anim.gameObject.GetComponent<Animator>().enabled = true;
                 releasedSpace = false;
                 momentum = 0;
                 transform.position = new Vector3(transform.position.x, yValue);
@@ -102,7 +100,8 @@ public class PlayerMove : MonoBehaviour
         if (collision.gameObject.tag == "Obstacle")
         {
             GameManager.Pause();
-            //GameOverAudio.Play();
+            randomCon.clips = deadClips;
+            randomCon.PlaySound();
             // Changes the dinosaur sprite to his dead sprite
             Anim.gameObject.GetComponent<Animator>().enabled = false;
             SpriteRen.sprite = DinosaurDead;

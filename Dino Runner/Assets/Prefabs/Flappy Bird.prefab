@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 279305562669585692}
   - component: {fileID: 3487955842996187291}
   - component: {fileID: 1712274179129077904}
-  - component: {fileID: 5821857058502334365}
   m_Layer: 0
   m_Name: Flappy Bird
   m_TagString: Obstacle
@@ -126,26 +125,5 @@ MonoBehaviour:
   sprites:
   - {fileID: -5995674500832913108, guid: 6c6dce6b323c10c4e9ebf7d556961225, type: 3}
   - {fileID: -4311324777641926302, guid: 6c6dce6b323c10c4e9ebf7d556961225, type: 3}
-  animations:
-  - {fileID: 0}
-  TeleLocation: 30
+  TeleLocation: 24
   type: 2
---- !u!95 &5821857058502334365
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8039981607049542905}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: ffa6150bceb846f49af35e89eaf5c076, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0

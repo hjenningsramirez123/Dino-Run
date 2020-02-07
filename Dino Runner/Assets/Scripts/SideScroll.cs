@@ -10,17 +10,14 @@ using UnityEngine;
 public class SideScroll : MonoBehaviour
 {
     public List<Sprite> sprites;
-    public List<Animation> animations;
     public enum Type { Floor, Cactus, Pterodactyl }
     public float TeleLocation = 24f;
     public Type type;
-    private Animator Anim;
     // Start is called before the first frame update
     void Start()
     {
         transform.position.Set(transform.position.x, -2, 0);
         GetComponent<SpriteRenderer>().sprite = sprites[(int)(Random.value * sprites.Count)];
-        Anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -39,14 +36,6 @@ public class SideScroll : MonoBehaviour
                 if (transform.position.x < -16)
                 {
                     Teleport();
-                }
-                break;
-            case Type.Pterodactyl:
-                Anim.gameObject.GetComponent<Animator>().enabled = true;
-                if(transform.position.x < -10)
-                {
-                    Anim.gameObject.GetComponent<Animator>().enabled = false;
-                    Destroy(gameObject);
                 }
                 break;
             default:
