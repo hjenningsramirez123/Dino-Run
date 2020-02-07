@@ -11,7 +11,7 @@ using UnityEngine.UI;
 
 public class PlayerMove : MonoBehaviour
 {
-    public static string[] Jump = new string[2]{ "space", "up" };
+    public static string[] Jump = new string[2] { "space", "up" };
     public float JumpPower = 16;
     public float FloatPower = 1.5f;
     public float Gravity = 1.5f;
@@ -19,18 +19,24 @@ public class PlayerMove : MonoBehaviour
     private float momentum = 0;
     private bool releasedSpace = false;
     private bool canJump = true;
-    private AudioSource JumpAudio;
+    public AudioClip[] jumpClips;
+    private RandomContainer randomCon;
+    private AudioSource GameOverAudio;
     private SpriteRenderer SpriteRen;
     public Sprite DinosaurDead;
+    public Sprite DinoStill;
     public Animation DinoDuck;
     private Animator Anim;
     // Start is called before the first frame update
     void Start()
     {
-        JumpAudio = GetComponent<AudioSource>();
+        randomCon = GetComponent<RandomContainer>();
+        //JumpClips = GetComponent<AudioClip>();
+        GameOverAudio = GetComponent<AudioSource>();
         SpriteRen = GetComponent<SpriteRenderer>();
         DinoDuck = GetComponent<Animation>();
         Anim = GetComponent<Animator>();
+        
     }
 
     // Update is called once per frame
@@ -43,7 +49,10 @@ public class PlayerMove : MonoBehaviour
                 if (transform.position.y < yValue + 0.0001f)
                 {
                     momentum = JumpPower;
-                    JumpAudio.Play();
+                    randomCon.clips = jumpClips;
+                    randomCon.PlaySound();
+                    Anim.gameObject.GetComponent<Animator>().enabled = false;
+                    SpriteRen.sprite = DinoStill;
                 }
                 else
                 {
@@ -93,6 +102,7 @@ public class PlayerMove : MonoBehaviour
         if (collision.gameObject.tag == "Obstacle")
         {
             GameManager.Pause();
+            //GameOverAudio.Play();
             // Changes the dinosaur sprite to his dead sprite
             Anim.gameObject.GetComponent<Animator>().enabled = false;
             SpriteRen.sprite = DinosaurDead;

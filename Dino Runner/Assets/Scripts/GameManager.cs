@@ -16,15 +16,16 @@ public class GameManager : MonoBehaviour
     public GameObject Score;
     public PlayerMove Player;
     private static float CurrentScore;
+    private static float HighScore;
     private static bool playing = true;
     public static float cactusRate = 1.0f;
 
     // Start is called before the first frame update
     void Start()
     {
-        
         Player = GetComponent<PlayerMove>();
         CurrentScore = 0;
+        HighScore = CurrentScore;
     }
 
     // Update is called once per frame
@@ -40,6 +41,7 @@ public class GameManager : MonoBehaviour
             }
             scoreString += ((int)CurrentScore).ToString();
             Score.GetComponent<Text>().text = scoreString;
+            HighScore = CurrentScore;
         }
     }
 
@@ -51,6 +53,7 @@ public class GameManager : MonoBehaviour
     public static void Resume()
     {
         playing = true;
+
     }
 
     public static bool GetPlaying()
