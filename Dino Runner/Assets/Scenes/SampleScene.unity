@@ -423,7 +423,7 @@ GameObject:
   - component: {fileID: 230959562}
   - component: {fileID: 230959561}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: GameOver
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -896,7 +896,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 2, y: 2}
   m_EdgeRadius: 0
 --- !u!50 &545266331
 Rigidbody2D:
@@ -1403,8 +1403,6 @@ MonoBehaviour:
   Score: {fileID: 1372725970}
   HighestScore: {fileID: 154259223}
   Player: {fileID: 545266329}
-  GameOver: {fileID: 0}
-  Mesh: {fileID: 0}
   scoreClips:
   - {fileID: 8300000, guid: 0646482260c62444b9963aea49d4cd35, type: 3}
 --- !u!4 &1700031259

@@ -50,6 +50,7 @@ public class GameManager : MonoBehaviour
             {
                 if(cactusRate > 0.5f)
                 {
+                    ScrollSpeed *= 1.03f;
                     cactusRate *= 0.95f;
                     print("cactus rate is now "+ cactusRate);
                 }
