@@ -12,8 +12,9 @@ GameObject:
   - component: {fileID: 279305562669585692}
   - component: {fileID: 3487955842996187291}
   - component: {fileID: 1712274179129077904}
+  - component: {fileID: 5492622223078559312}
   m_Layer: 0
-  m_Name: Flappy Bird
+  m_Name: FlappyBirdWinter
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -72,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -5995674500832913108, guid: 6c6dce6b323c10c4e9ebf7d556961225,
+  m_Sprite: {fileID: -7713970184364906186, guid: d09e14529933efd45aff403b6fd27d04,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -101,7 +102,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.1, y: 0.75}
+    oldSize: {x: 1.25, y: 1.5}
     newSize: {x: 1.1, y: 0.75}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -123,7 +124,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprites:
-  - {fileID: -5995674500832913108, guid: 6c6dce6b323c10c4e9ebf7d556961225, type: 3}
-  - {fileID: -4311324777641926302, guid: 6c6dce6b323c10c4e9ebf7d556961225, type: 3}
+  - {fileID: -7713970184364906186, guid: d09e14529933efd45aff403b6fd27d04, type: 3}
+  - {fileID: 3321095432584212346, guid: d09e14529933efd45aff403b6fd27d04, type: 3}
   TeleLocation: 24
   type: 2
+--- !u!95 &5492622223078559312
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8039981607049542905}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 200f4b0d462467446b5c1669fd835209, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

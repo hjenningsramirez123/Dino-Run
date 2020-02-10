@@ -18,15 +18,34 @@ public class ChangeScene : MonoBehaviour
 
     }
 
+    public void ExitGame()
+    {
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            SceneManager.LoadScene("Menu");
+        }
+    }
+
     public void OpenGame()
     {
         GameManager.Resume();
         SceneManager.LoadScene("Game");
     }
 
+    public void OpenGamePlus()
+    {
+        GameManager.Resume();
+        SceneManager.LoadScene("Game+");
+    }
+
     public void TitleScene()
     {
         SceneManager.LoadScene("Menu");
+    }
+
+    public void CloseGame()
+    {
+        Application.Quit();
     }
 
     // Update is called once per frame
