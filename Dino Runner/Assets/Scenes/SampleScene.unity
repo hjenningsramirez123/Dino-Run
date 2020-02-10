@@ -1221,8 +1221,6 @@ MonoBehaviour:
   Score: {fileID: 1372725970}
   HighestScore: {fileID: 154259223}
   Player: {fileID: 545266329}
-  GameOver: {fileID: 0}
-  Mesh: {fileID: 0}
   scoreClips:
   - {fileID: 8300000, guid: 0646482260c62444b9963aea49d4cd35, type: 3}
 --- !u!4 &1700031259
