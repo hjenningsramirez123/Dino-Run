@@ -39,7 +39,21 @@ public class Obstacles : MonoBehaviour
         {
             obstacle = Instantiate(pterodactyl);
             obstacle.GetComponent<SideScroll>().type = SideScroll.Type.Pterodactyl;
-            obstacle.transform.position = new Vector3(10, 0, 0);
+            double rand = Random.value;
+            int yVal = 0;
+            if (rand < 0.333)
+            {
+                yVal = -2;
+            }
+            else if(rand < 0.666)
+            {
+                yVal = -1;
+            }
+            else
+            {
+                yVal = 0;
+            }
+            obstacle.transform.position = new Vector3(10, yVal, 0);
         }
         
     }
