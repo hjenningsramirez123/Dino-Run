@@ -27,6 +27,7 @@ public class PlayerMove : MonoBehaviour
     public Sprite DinoStill;
     public Animation DinoDuck;
     private Animator Anim;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -62,11 +63,12 @@ public class PlayerMove : MonoBehaviour
             else if (Input.GetKey("down"))
             {
                 momentum = -15f;
+                //Anim.SetTrigger("DinoDuck");
             }
             if (Input.GetKey("down") && transform.position.y > 0.0001f)
             {
                 canJump = false;
-                // Anim.SetTrigger("Dino Duck");
+                
             }
             else
             {

@@ -1403,6 +1403,8 @@ MonoBehaviour:
   Score: {fileID: 1372725970}
   HighestScore: {fileID: 154259223}
   Player: {fileID: 545266329}
+  GameOver: {fileID: 0}
+  Mesh: {fileID: 0}
   scoreClips:
   - {fileID: 8300000, guid: 0646482260c62444b9963aea49d4cd35, type: 3}
 --- !u!4 &1700031259
@@ -1444,7 +1446,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cactus: {fileID: 7873080547844551997, guid: e487fad84bdc65341b9203024fc6b0e5, type: 3}
-  pterodactyl: {fileID: 0}
+  pterodactyl: {fileID: 8039981607049542905, guid: 6afbe2eca7fe21a45a350460a4905dcc,
+    type: 3}
 --- !u!114 &1700031263
 MonoBehaviour:
   m_ObjectHideFlags: 0

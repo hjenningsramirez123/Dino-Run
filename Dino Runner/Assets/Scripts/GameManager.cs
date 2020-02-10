@@ -16,17 +16,19 @@ public class GameManager : MonoBehaviour
     public GameObject Score;
     public GameObject HighestScore;
     public PlayerMove Player;
+    public GameObject GameOver;
     private static float CurrentScore;
     private static float HighScore;
     private static bool playing = true;
     public static float cactusRate = 1.0f;
-
+    public MeshRenderer Mesh;
     public AudioClip[] scoreClips;
     private RandomContainer randomCon;
 
     // Start is called before the first frame update
     void Start()
     {
+        
         Player = GetComponent<PlayerMove>();
         CurrentScore = 0;
         HighScore = 0;
@@ -62,6 +64,7 @@ public class GameManager : MonoBehaviour
     public static void Pause()
     {
         playing = false;
+        
     }
 
     public static void Resume()
