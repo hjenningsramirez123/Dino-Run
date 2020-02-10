@@ -46,6 +46,12 @@ public class SideScroll : MonoBehaviour
                     Teleport();
                 }
                 break;
+            case Type.Cloud:
+                if(transform.position.x < -10)
+                {
+                    Teleport();
+                }
+                break;
             default:
                 if (transform.position.x < -10)
                 {
@@ -58,6 +64,11 @@ public class SideScroll : MonoBehaviour
     private void Teleport()
     {
         GetComponent<SpriteRenderer>().sprite = sprites[(int)(Random.value * sprites.Count)];
-        transform.position = new Vector2(TeleLocation, transform.position.y);
+        float yVal = transform.position.y;
+        if(type == Type.Cloud)
+        {
+            yVal = Random.Range(0.5f, 3.5f);
+        }
+        transform.position = new Vector2(TeleLocation, yVal);
     }
 }
