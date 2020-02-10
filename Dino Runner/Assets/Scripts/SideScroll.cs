@@ -10,7 +10,7 @@ using UnityEngine;
 public class SideScroll : MonoBehaviour
 {
     public List<Sprite> sprites;
-    public enum Type { Floor, Cactus, Pterodactyl }
+    public enum Type { Floor, Cactus, Pterodactyl , Cloud }
     public float TeleLocation = 24f;
     public Type type;
     // Start is called before the first frame update
@@ -26,7 +26,15 @@ public class SideScroll : MonoBehaviour
         // move left by amount depending on scrollspeed
         if (GameManager.GetPlaying())
         {
-            transform.position = transform.position + new Vector3(-GameManager.ScrollSpeed * Time.deltaTime, 0);
+            if (type == Type.Cloud)
+            {
+                transform.position = transform.position + new Vector3(-GameManager.ScrollSpeed * Time.deltaTime * 0.6f, 0);
+            }
+            else
+            {
+                transform.position = transform.position + new Vector3(-GameManager.ScrollSpeed * Time.deltaTime, 0);
+            }
+            
         }
         // when it gets off screen teleport forward or create new one
 
