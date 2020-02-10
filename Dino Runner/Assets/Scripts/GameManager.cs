@@ -28,7 +28,8 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        //Mesh = GetComponent<MeshRenderer>();
+        //Mesh.enabled = false;
         Player = GetComponent<PlayerMove>();
         CurrentScore = 0;
         HighScore = 0;
