@@ -96,6 +96,7 @@ public class GameManager : MonoBehaviour
     public static void Resume()
     {
         playing = true;
+        Obstacles.nextSpawn = 35;
     }
 
     public static bool GetPlaying()

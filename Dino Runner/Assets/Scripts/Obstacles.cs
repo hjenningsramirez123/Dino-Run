@@ -6,7 +6,7 @@ public class Obstacles : MonoBehaviour
 {
     public GameObject cactus;
     public GameObject pterodactyl;
-    private static float nextSpawn = 35;
+    public static float nextSpawn = 35;
     public static float lowerSpawn = 10;
     public static float higherSpawn = 25;
 
