@@ -524,7 +524,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clips:
-  - {fileID: 8300000, guid: 0646482260c62444b9963aea49d4cd35, type: 3}
+  - {fileID: 8300000, guid: 2b8577ef84b71014db25e98f6e1f2f9e, type: 3}
   output: {fileID: 24300002, guid: 947a49a4426667e4f8a13fad44a1a36d, type: 2}
   minPitch: 0.75
   maxPitch: 1.25
@@ -541,7 +541,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cactus: {fileID: 7873080547844551997, guid: 5117152685be2b54f9bd36e9c20c9f34, type: 3}
-  pterodactyl: {fileID: 8039981607049542905, guid: 6afbe2eca7fe21a45a350460a4905dcc,
+  pterodactyl: {fileID: 8039981607049542905, guid: 48043491762e0744db1bc981fd0110d1,
     type: 3}
 --- !u!114 &1280670946
 MonoBehaviour:
@@ -570,10 +570,8 @@ MonoBehaviour:
   Score: {fileID: 1132293584}
   HighestScore: {fileID: 1641251277}
   Player: {fileID: 1632249885}
-  GameOver: {fileID: 0}
-  Mesh: {fileID: 0}
   scoreClips:
-  - {fileID: 8300000, guid: 0646482260c62444b9963aea49d4cd35, type: 3}
+  - {fileID: 8300000, guid: 2b8577ef84b71014db25e98f6e1f2f9e, type: 3}
 --- !u!4 &1280670948
 Transform:
   m_ObjectHideFlags: 0

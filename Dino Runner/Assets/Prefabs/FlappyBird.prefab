@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1712274179129077904}
   - component: {fileID: 5492622223078559312}
   m_Layer: 0
-  m_Name: Flappy Bird
+  m_Name: FlappyBird
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -138,7 +138,7 @@ Animator:
   m_GameObject: {fileID: 8039981607049542905}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8cb86ab274400614fb31d616ca7e889c, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

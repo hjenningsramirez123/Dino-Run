@@ -190,7 +190,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clips:
   - {fileID: 8300000, guid: 9e5f17b85fdd36a4fad1d287c953da52, type: 3}
-  - {fileID: 8300000, guid: 53e7ecaddb4acee48b6eac365e7d8c47, type: 3}
+  - {fileID: 8300000, guid: 55f06695072e97e44968268fac042f62, type: 3}
   output: {fileID: 24300002, guid: 947a49a4426667e4f8a13fad44a1a36d, type: 2}
   minPitch: 0.75
   maxPitch: 1.25

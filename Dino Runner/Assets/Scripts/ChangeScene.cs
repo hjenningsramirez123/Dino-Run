@@ -23,6 +23,7 @@ public class ChangeScene : MonoBehaviour
         if (Input.GetKey(KeyCode.Escape))
         {
             SceneManager.LoadScene("Menu");
+            print("Have escaped");
         }
     }
 

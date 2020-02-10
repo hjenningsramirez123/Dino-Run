@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8283817141822906566}
   - component: {fileID: 5594379332771127707}
   m_Layer: 9
-  m_Name: FloorPart+
+  m_Name: FloorPartSummer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

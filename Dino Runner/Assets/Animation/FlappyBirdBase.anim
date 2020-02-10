@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: DinoDuck
+  m_Name: FlappyBirdBase
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,13 +20,13 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 1927273922928981008, guid: a196e4306b303414fbe04d7932825abd,
+      value: {fileID: -5995674500832913108, guid: 6c6dce6b323c10c4e9ebf7d556961225,
         type: 3}
-    - time: 0.1
-      value: {fileID: -7014892219005078358, guid: a196e4306b303414fbe04d7932825abd,
+    - time: 0.11666667
+      value: {fileID: -4311324777641926302, guid: 6c6dce6b323c10c4e9ebf7d556961225,
         type: 3}
-    - time: 0.2
-      value: {fileID: -7014892219005078358, guid: a196e4306b303414fbe04d7932825abd,
+    - time: 0.25
+      value: {fileID: -4311324777641926302, guid: 6c6dce6b323c10c4e9ebf7d556961225,
         type: 3}
     attribute: m_Sprite
     path: 
@@ -47,15 +47,15 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 1927273922928981008, guid: a196e4306b303414fbe04d7932825abd, type: 3}
-    - {fileID: -7014892219005078358, guid: a196e4306b303414fbe04d7932825abd, type: 3}
-    - {fileID: -7014892219005078358, guid: a196e4306b303414fbe04d7932825abd, type: 3}
+    - {fileID: -5995674500832913108, guid: 6c6dce6b323c10c4e9ebf7d556961225, type: 3}
+    - {fileID: -4311324777641926302, guid: 6c6dce6b323c10c4e9ebf7d556961225, type: 3}
+    - {fileID: -4311324777641926302, guid: 6c6dce6b323c10c4e9ebf7d556961225, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.21666667
+    m_StopTime: 0.26666668
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
