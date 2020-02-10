@@ -1,7 +1,7 @@
 /*
  * PlayerMove.cs
  * Marvin Chan & Harry Jennings-Ramirez
- * 6 Feb. 2020
+ * 7 Feb. 2020
  * This controls the player movement
  */
 using System.Collections;
@@ -11,7 +11,7 @@ using UnityEngine.UI;
 
 public class PlayerMove : MonoBehaviour
 {
-    public static string[] Jump = new string[2]{ "space", "up" };
+    public static string[] Jump = new string[2] { "space", "up" };
     public float JumpPower = 16;
     public float FloatPower = 1.5f;
     public float Gravity = 1.5f;
@@ -19,15 +19,19 @@ public class PlayerMove : MonoBehaviour
     private float momentum = 0;
     private bool releasedSpace = false;
     private bool canJump = true;
-    private AudioSource JumpAudio;
+    public AudioClip[] jumpClips;
+    public AudioClip[] deadClips;
+    private RandomContainer randomCon;
     private SpriteRenderer SpriteRen;
     public Sprite DinosaurDead;
+    public Sprite DinoStill;
     public Animation DinoDuck;
     private Animator Anim;
+    
     // Start is called before the first frame update
     void Start()
     {
-        JumpAudio = GetComponent<AudioSource>();
+        randomCon = GetComponent<RandomContainer>();
         SpriteRen = GetComponent<SpriteRenderer>();
         DinoDuck = GetComponent<Animation>();
         Anim = GetComponent<Animator>();
@@ -43,7 +47,10 @@ public class PlayerMove : MonoBehaviour
                 if (transform.position.y < yValue + 0.0001f)
                 {
                     momentum = JumpPower;
-                    JumpAudio.Play();
+                    randomCon.clips = jumpClips;
+                    randomCon.PlaySound();
+                    Anim.gameObject.GetComponent<Animator>().enabled = false;
+                    SpriteRen.sprite = DinoStill;
                 }
                 else
                 {
@@ -56,11 +63,12 @@ public class PlayerMove : MonoBehaviour
             else if (Input.GetKey("down"))
             {
                 momentum = -15f;
+                //Anim.SetTrigger("DinoDuck");
             }
             if (Input.GetKey("down") && transform.position.y > 0.0001f)
             {
                 canJump = false;
-                Anim.SetTrigger("Dino Duck");
+                
             }
             else
             {
@@ -80,6 +88,7 @@ public class PlayerMove : MonoBehaviour
             }
             else
             {
+                Anim.gameObject.GetComponent<Animator>().enabled = true;
                 releasedSpace = false;
                 momentum = 0;
                 transform.position = new Vector3(transform.position.x, yValue);
@@ -93,6 +102,8 @@ public class PlayerMove : MonoBehaviour
         if (collision.gameObject.tag == "Obstacle")
         {
             GameManager.Pause();
+            randomCon.clips = deadClips;
+            randomCon.PlaySound();
             // Changes the dinosaur sprite to his dead sprite
             Anim.gameObject.GetComponent<Animator>().enabled = false;
             SpriteRen.sprite = DinosaurDead;

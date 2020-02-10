@@ -32,12 +32,15 @@ public class Obstacles : MonoBehaviour
         if(Random.value < GameManager.getCactusRate())
         {
             obstacle = Instantiate(cactus);
+            obstacle.GetComponent<SideScroll>().type = SideScroll.Type.Cactus;
+            obstacle.transform.position = new Vector3(10, -2, 0);
         }
         else
         {
             obstacle = Instantiate(pterodactyl);
+            obstacle.GetComponent<SideScroll>().type = SideScroll.Type.Pterodactyl;
+            obstacle.transform.position = new Vector3(10, 0, 0);
         }
-        obstacle.GetComponent<SideScroll>().type = SideScroll.Type.Cactus;
-        obstacle.transform.position = new Vector3(10, -2, 0);
+        
     }
 }

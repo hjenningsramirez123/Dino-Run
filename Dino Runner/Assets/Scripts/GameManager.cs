@@ -14,10 +14,16 @@ public class GameManager : MonoBehaviour
     public static float ScrollSpeed = 10f;
     public static float TeleportDistance = 26f;
     public GameObject Score;
+    public GameObject HighestScore;
     public PlayerMove Player;
+    public GameObject GameOver;
     private static float CurrentScore;
+    private static float HighScore;
     private static bool playing = true;
     public static float cactusRate = 1.0f;
+    public MeshRenderer Mesh;
+    public AudioClip[] scoreClips;
+    private RandomContainer randomCon;
 
     // Start is called before the first frame update
     void Start()
@@ -25,6 +31,8 @@ public class GameManager : MonoBehaviour
         
         Player = GetComponent<PlayerMove>();
         CurrentScore = 0;
+        HighScore = 0;
+        randomCon = GetComponent<RandomContainer>();
     }
 
     // Update is called once per frame
@@ -40,12 +48,23 @@ public class GameManager : MonoBehaviour
             }
             scoreString += ((int)CurrentScore).ToString();
             Score.GetComponent<Text>().text = scoreString;
+
+            HighScore += ScrollSpeed / 250f;
+            string highscoreString = "HI ";
+            for (int i = 1; i <= 5 - ((int)HighScore).ToString().Length; i++)
+            {
+                highscoreString += '0';
+            }
+            highscoreString += ((int)HighScore).ToString();
+            HighestScore.GetComponent<Text>().text = highscoreString;
+            
         }
     }
 
     public static void Pause()
     {
         playing = false;
+        
     }
 
     public static void Resume()

@@ -13,7 +13,6 @@ public class SideScroll : MonoBehaviour
     public enum Type { Floor, Cactus, Pterodactyl }
     public float TeleLocation = 24f;
     public Type type;
-
     // Start is called before the first frame update
     void Start()
     {
