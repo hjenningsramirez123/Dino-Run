@@ -17,20 +17,22 @@ public class GameManager : MonoBehaviour
     public GameObject Score;
     public GameObject HighestScore;
     public PlayerMove Player;
-    public GameObject GameOver;
+    private static GameObject GameOver;
+    private static GameObject Restart;
     private static float CurrentScore;
     private static float HighScore;
     private static bool playing = true;
     public static float cactusRate = 1.0f;
-    public MeshRenderer Mesh;
     public AudioClip[] scoreClips;
     private RandomContainer randomCon;
 
     // Start is called before the first frame update
     void Start()
     {
-        //Mesh = GetComponent<MeshRenderer>();
-        //Mesh.enabled = false;
+        GameOver = GameObject.Find("Game Over");
+        Restart = GameObject.Find("Restart");
+        GameOver.SetActive(false);
+        Restart.SetActive(false);
         Player = GetComponent<PlayerMove>();
         CurrentScore = 0;
         HighScore = 0;
@@ -42,7 +44,20 @@ public class GameManager : MonoBehaviour
     {
         if(playing)
         {
+            float lastScore = CurrentScore;
             CurrentScore += ScrollSpeed / 250f;
+            // to tell when it passes a 100 score benchmark
+            if(CurrentScore % 100 < lastScore % 100)
+            {
+                if(cactusRate > 0.5f)
+                {
+                    ScrollSpeed *= 1.03f;
+                    cactusRate *= 0.95f;
+                    print("cactus rate is now "+ cactusRate);
+                }
+                randomCon.clips = scoreClips;
+                randomCon.PlaySound();
+            }
             string scoreString = "";
             for (int i = 1; i <= 5 - ((int)CurrentScore).ToString().Length; i++)
             {
@@ -74,7 +89,8 @@ public class GameManager : MonoBehaviour
     public static void Pause()
     {
         playing = false;
-        
+        GameOver.SetActive(true);
+        Restart.SetActive(true);
     }
 
     public static void Resume()
