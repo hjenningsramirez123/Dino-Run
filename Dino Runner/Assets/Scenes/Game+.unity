@@ -338,7 +338,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1280670946}
-        m_MethodName: OpenGame
+        m_MethodName: OpenGamePlus
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -669,6 +669,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clips:
   - {fileID: 8300000, guid: 2b8577ef84b71014db25e98f6e1f2f9e, type: 3}
+  - {fileID: 8300000, guid: 95941a3553cc7784f98028501555f9c8, type: 3}
   output: {fileID: 24300002, guid: 947a49a4426667e4f8a13fad44a1a36d, type: 2}
   minPitch: 0.75
   maxPitch: 1.25
@@ -721,6 +722,7 @@ MonoBehaviour:
   winterPlayer: {fileID: 1882949597}
   scoreClips:
   - {fileID: 8300000, guid: 2b8577ef84b71014db25e98f6e1f2f9e, type: 3}
+  - {fileID: 8300000, guid: 95941a3553cc7784f98028501555f9c8, type: 3}
 --- !u!4 &1280670948
 Transform:
   m_ObjectHideFlags: 0
