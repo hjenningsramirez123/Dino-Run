@@ -1,11 +1,18 @@
-﻿using System.Collections;
+﻿/* Obstacles.cs
+ * Marvin Chan
+ * 11 February 2020
+ * This manages spawning of new obstacles
+ */
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Obstacles : MonoBehaviour
 {
     public GameObject cactus;
+    public GameObject winterCactus;
     public GameObject pterodactyl;
+    public GameObject winterPterodactyl;
     public static float nextSpawn = 35;
     public static float lowerSpawn = 10;
     public static float higherSpawn = 25;
@@ -31,13 +38,15 @@ public class Obstacles : MonoBehaviour
         GameObject obstacle;
         if(Random.value < GameManager.getCactusRate())
         {
-            obstacle = Instantiate(cactus);
+            // if summer use normal cactus otherwise use winter cactus
+            obstacle = Instantiate(GameManager.getSummer() ? cactus : winterCactus);
             obstacle.GetComponent<SideScroll>().type = SideScroll.Type.Cactus;
             obstacle.transform.position = new Vector3(10, -2, 0);
         }
         else
         {
-            obstacle = Instantiate(pterodactyl);
+            // if summer use normal pterodactyl otherwise use winter vers
+            obstacle = Instantiate(GameManager.getSummer() ? pterodactyl : winterPterodactyl);
             obstacle.GetComponent<SideScroll>().type = SideScroll.Type.Pterodactyl;
             double rand = Random.value;
             int yVal = 0;

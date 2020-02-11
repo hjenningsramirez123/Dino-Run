@@ -16,16 +16,16 @@ public class PlayerMove : MonoBehaviour
     public float FloatPower = 1.5f;
     public float Gravity = 1.5f;
     public float yValue = -2;
-    private float momentum = 0;
-    private bool releasedSpace = false;
-    private bool canJump = true;
     public AudioClip[] jumpClips;
     public AudioClip[] deadClips;
-    private RandomContainer randomCon;
-    private SpriteRenderer SpriteRen;
     public Sprite DinosaurDead;
     public Sprite DinoStill;
     public Animation DinoDuck;
+    private float momentum = 0;
+    private bool releasedSpace = false;
+    private bool canJump = true;
+    private RandomContainer randomCon;
+    private SpriteRenderer SpriteRen;
     private Animator Anim;
     private BoxCollider2D Col;
     // Start is called before the first frame update
@@ -125,5 +125,4 @@ public class PlayerMove : MonoBehaviour
 
         }
     }
-
 }

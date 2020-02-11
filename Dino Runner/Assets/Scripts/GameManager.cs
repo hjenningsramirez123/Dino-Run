@@ -16,7 +16,12 @@ public class GameManager : MonoBehaviour
     public static float TeleportDistance = 26f;
     public GameObject Score;
     public GameObject HighestScore;
-    public PlayerMove Player;
+    public GameObject summerPlayer;
+    public GameObject winterPlayer;
+    public List<GameObject> summerStuff;
+    public List<GameObject> winterStuff;
+    public static float seasonInterval = 50f;
+    private static bool isSummer = true;
     private static GameObject GameOver;
     private static GameObject Restart;
     private static float CurrentScore;
@@ -33,10 +38,10 @@ public class GameManager : MonoBehaviour
         Restart = GameObject.Find("Restart");
         GameOver.SetActive(false);
         Restart.SetActive(false);
-        Player = GetComponent<PlayerMove>();
         CurrentScore = 0;
         HighScore = 0;
         randomCon = GetComponent<RandomContainer>();
+        ChangeSeason();
     }
 
     // Update is called once per frame
@@ -49,14 +54,20 @@ public class GameManager : MonoBehaviour
             // to tell when it passes a 100 score benchmark
             if(CurrentScore % 100 < lastScore % 100)
             {
-                if(cactusRate > 0.5f)
+                ScrollSpeed *= 1.03f;
+                if (cactusRate > 0.5f)
                 {
-                    ScrollSpeed *= 1.03f;
                     cactusRate *= 0.95f;
                     print("cactus rate is now "+ cactusRate);
                 }
                 randomCon.clips = scoreClips;
                 randomCon.PlaySound();
+            }
+            // change seasons every 500 score
+            if (CurrentScore % seasonInterval < lastScore % seasonInterval)
+            {
+                isSummer = !isSummer;
+                ChangeSeason();
             }
             string scoreString = "";
             for (int i = 1; i <= 5 - ((int)CurrentScore).ToString().Length; i++)
@@ -112,5 +123,24 @@ public class GameManager : MonoBehaviour
     public static float getScore()
     {
         return CurrentScore;
+    }
+
+    public static bool getSummer()
+    {
+        return isSummer;
+    }
+
+    void ChangeSeason()
+    {
+        if (isSummer)
+        {
+            summerPlayer.transform.position = winterPlayer.transform.position;
+        }
+        else
+        {
+            winterPlayer.transform.position = summerPlayer.transform.position;
+        }
+        winterPlayer.SetActive(!isSummer);
+        summerPlayer.SetActive(isSummer);
     }
 }
