@@ -27,11 +27,11 @@ public class PlayerMove : MonoBehaviour
     public Sprite DinoStill;
     public Animation DinoDuck;
     private Animator Anim;
-    private BoxCollider2D collider;
+    private BoxCollider2D Col;
     // Start is called before the first frame update
     void Start()
     {
-        collider = GetComponent<BoxCollider2D>();
+        Col = GetComponent<BoxCollider2D>();
         randomCon = GetComponent<RandomContainer>();
         SpriteRen = GetComponent<SpriteRenderer>();
         DinoDuck = GetComponent<Animation>();
@@ -77,15 +77,18 @@ public class PlayerMove : MonoBehaviour
                 }
                 if (Input.GetKey("down"))
                 {
+                    //Anim.Play("DinoDuck");
                     //crouching
-                    collider.offset = new Vector2(collider.offset.x, -0.7f);
-                    collider.size = new Vector2(collider.size.x, 0.5f);
+                    Col.offset = new Vector2(Col.offset.x, -0.7f);
+                    Col.size = new Vector2(Col.size.x, 0.5f);
                 }
                 else
                 {
+                    
+                    Anim.Play("Player");
                     //not crouching
-                    collider.offset = new Vector2(collider.offset.x, 0f);
-                    collider.size = new Vector2(collider.size.x, 1.5f);
+                    Col.offset = new Vector2(Col.offset.x, 0f);
+                    Col.size = new Vector2(Col.size.x, 1.5f);
                 }
             }
             transform.position = transform.position + new Vector3(0, momentum * Time.deltaTime);
