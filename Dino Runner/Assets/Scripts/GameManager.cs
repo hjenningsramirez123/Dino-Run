@@ -1,6 +1,6 @@
 ﻿/* GameManager.cs
  * Marvin & Harry
- * 4 February 2020
+ * 12 February 2020
  * Manages game stuff like score and scroll speed
  */ 
 using System.Collections;
@@ -18,8 +18,6 @@ public class GameManager : MonoBehaviour
     public GameObject HighestScore;
     public GameObject summerPlayer;
     public GameObject winterPlayer;
-    public List<GameObject> summerStuff;
-    public List<GameObject> winterStuff;
     public static float seasonInterval = 50f;
     private static bool isSummer = true;
     private static GameObject GameOver;

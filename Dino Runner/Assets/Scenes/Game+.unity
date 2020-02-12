@@ -523,7 +523,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 150, y: 50}
+  m_AnchoredPosition: {x: 550, y: 60}
   m_SizeDelta: {x: 300, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1132293586
@@ -720,6 +720,8 @@ MonoBehaviour:
   HighestScore: {fileID: 1641251277}
   summerPlayer: {fileID: 234870951}
   winterPlayer: {fileID: 1882949597}
+  summerStuff: []
+  winterStuff: []
   scoreClips:
   - {fileID: 8300000, guid: 2b8577ef84b71014db25e98f6e1f2f9e, type: 3}
   - {fileID: 8300000, guid: 95941a3553cc7784f98028501555f9c8, type: 3}
@@ -1132,7 +1134,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 40, y: 50}
+  m_AnchoredPosition: {x: 425, y: 60}
   m_SizeDelta: {x: 300, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1809462288

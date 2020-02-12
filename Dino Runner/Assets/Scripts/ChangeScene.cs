@@ -1,7 +1,7 @@
 ﻿/*********
  * ChangeScene.cs
  * By: Harry Jennings-Ramirez
- * Last Edited: 2/6/2020
+ * Last Edited: 2/12/2020
  * Description: Changes scene when needed 
  ********/
 
@@ -18,40 +18,34 @@ public class ChangeScene : MonoBehaviour
 
     }
 
-    public void ExitGame()
-    {
-        if (Input.GetKey(KeyCode.Escape))
-        {
-            SceneManager.LoadScene("Menu");
-            print("Have escaped");
-        }
-    }
-
     public void OpenGame()
     {
+        // Opens base game
         GameManager.Resume();
         SceneManager.LoadScene("Game");
     }
 
     public void OpenGamePlus()
     {
+        // Opens plus game
         GameManager.Resume();
         SceneManager.LoadScene("Game+");
     }
 
-    public void TitleScene()
-    {
-        SceneManager.LoadScene("Menu");
-    }
-
     public void CloseGame()
     {
+        // Closes game
         Application.Quit();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        // Takes you back to title screen/menu
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            SceneManager.LoadScene("Menu");
+            print("Have escaped");
+        }
     }
 }

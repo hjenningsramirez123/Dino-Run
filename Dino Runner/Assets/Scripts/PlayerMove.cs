@@ -85,7 +85,7 @@ public class PlayerMove : MonoBehaviour
                 else
                 {
                     
-                    Anim.Play("Player");
+                    //Anim.Play("Player");
                     //not crouching
                     Col.offset = new Vector2(Col.offset.x, 0f);
                     Col.size = new Vector2(Col.size.x, 1.5f);

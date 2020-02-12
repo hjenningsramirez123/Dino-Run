@@ -301,7 +301,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 40, y: 50}
+  m_AnchoredPosition: {x: 425, y: 60}
   m_SizeDelta: {x: 300, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &154259225
@@ -408,7 +408,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &230959560
 GameObject:
@@ -503,7 +503,7 @@ RectTransform:
   - {fileID: 131898525}
   - {fileID: 1402446968}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -672,7 +672,7 @@ RectTransform:
   - {fileID: 1372725971}
   - {fileID: 154259224}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -762,18 +762,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &545266329 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 828523526740246650, guid: 5f2a444ae990afc4b963ac1e534ec9c5,
-    type: 3}
-  m_PrefabInstance: {fileID: 828523527285512931}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec0c1d4e54d19b0429ed1e3362f636c6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &609207510
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -824,7 +812,7 @@ PrefabInstance:
     - target: {fileID: 7722771113507641026, guid: e0ed223d843576d4ba5d0676c667dd6f,
         type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 7722771113507641026, guid: e0ed223d843576d4ba5d0676c667dd6f,
         type: 3}
@@ -1015,7 +1003,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 150, y: 50}
+  m_AnchoredPosition: {x: 550, y: 60}
   m_SizeDelta: {x: 300, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1372725972
@@ -1289,7 +1277,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Score: {fileID: 1372725970}
   HighestScore: {fileID: 154259223}
-  Player: {fileID: 545266329}
+  summerPlayer: {fileID: 0}
+  winterPlayer: {fileID: 0}
+  summerStuff: []
+  winterStuff: []
   scoreClips:
   - {fileID: 8300000, guid: 0646482260c62444b9963aea49d4cd35, type: 3}
 --- !u!4 &1700031259
@@ -1304,7 +1295,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1700031261
 MonoBehaviour:
@@ -1331,8 +1322,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cactus: {fileID: 7873080547844551997, guid: e487fad84bdc65341b9203024fc6b0e5, type: 3}
+  winterCactus: {fileID: 0}
   pterodactyl: {fileID: 8039981607049542905, guid: 6afbe2eca7fe21a45a350460a4905dcc,
     type: 3}
+  winterPterodactyl: {fileID: 0}
 --- !u!114 &1700031263
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1430,7 +1423,7 @@ PrefabInstance:
     - target: {fileID: 828523526740246651, guid: 5f2a444ae990afc4b963ac1e534ec9c5,
         type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 828523526740246651, guid: 5f2a444ae990afc4b963ac1e534ec9c5,
         type: 3}
