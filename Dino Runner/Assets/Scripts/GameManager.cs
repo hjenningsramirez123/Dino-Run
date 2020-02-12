@@ -65,6 +65,9 @@ public class GameManager : MonoBehaviour
             if (CurrentScore % seasonInterval < lastScore % seasonInterval)
             {
                 isSummer = !isSummer;
+            }
+            if ((CurrentScore - 17f) % seasonInterval < (lastScore - 17f) % seasonInterval)
+            {
                 ChangeSeason();
             }
             string scoreString = "";
@@ -90,7 +93,7 @@ public class GameManager : MonoBehaviour
             if (Input.GetKey("space"))
             {
                 Resume();
-                SceneManager.LoadScene("SampleScene");
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             }
         }
     }
@@ -133,10 +136,12 @@ public class GameManager : MonoBehaviour
         if (isSummer)
         {
             summerPlayer.transform.position = winterPlayer.transform.position;
+            summerPlayer.GetComponent<PlayerMove>().momentum = winterPlayer.GetComponent<PlayerMove>().momentum;
         }
         else
         {
             winterPlayer.transform.position = summerPlayer.transform.position;
+            winterPlayer.GetComponent<PlayerMove>().momentum = summerPlayer.GetComponent<PlayerMove>().momentum;
         }
         winterPlayer.SetActive(!isSummer);
         summerPlayer.SetActive(isSummer);

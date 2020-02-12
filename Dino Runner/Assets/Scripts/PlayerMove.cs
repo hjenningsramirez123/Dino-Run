@@ -21,7 +21,7 @@ public class PlayerMove : MonoBehaviour
     public Sprite DinosaurDead;
     public Sprite DinoStill;
     public Animation DinoDuck;
-    private float momentum = 0;
+    public float momentum = 0;
     private bool releasedSpace = false;
     private bool canJump = true;
     private RandomContainer randomCon;

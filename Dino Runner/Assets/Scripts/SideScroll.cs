@@ -43,7 +43,7 @@ public class SideScroll : MonoBehaviour
             case Type.Floor:
                 if (transform.position.x < -16)
                 {
-                    Teleport();
+                    Destroy(gameObject);
                 }
                 break;
             case Type.Cloud:

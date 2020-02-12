@@ -13,14 +13,21 @@ public class Obstacles : MonoBehaviour
     public GameObject winterCactus;
     public GameObject pterodactyl;
     public GameObject winterPterodactyl;
+    public GameObject summerFloor;
+    public GameObject winterFloor;
     public static float nextSpawn = 35;
     public static float lowerSpawn = 10;
     public static float higherSpawn = 25;
+    private static float lastScore = 0;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        SpawnFloor(new Vector3(-5, -3, 0));
+        SpawnFloor(new Vector3(0, -3, 0));
+        SpawnFloor(new Vector3(5, -3, 0));
+        SpawnFloor(new Vector3(10, -3, 0));
+        SpawnFloor(new Vector3(15, -3, 0));
     }
 
     // Update is called once per frame
@@ -31,6 +38,17 @@ public class Obstacles : MonoBehaviour
             Spawn();
             nextSpawn += Random.Range(lowerSpawn, higherSpawn);
         }
+        if (GameManager.getScore() % 4 < lastScore % 4)
+        {
+            SpawnFloor(new Vector3(16,-3,0));
+        }
+        lastScore = GameManager.getScore();
+    }
+
+    private void SpawnFloor(Vector3 pos)
+    {
+        GameObject newFloor = Instantiate(GameManager.getSummer() ? summerFloor : winterFloor);
+        newFloor.transform.position = pos;
     }
 
     public void Spawn()
